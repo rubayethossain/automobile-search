@@ -1,0 +1,73 @@
+Automobile Search Application
+
+Tasks:
+01. Project Setup (3h)
+    - CRA Boilerplate Installations
+    - CSS Library Setup
+    - Install required libraries
+    - Redux Setup
+
+02. Route Setup (1h)
+    - Landing Page/Homepage Route
+    - Add/Edit Car Route
+    - Card Details Route
+
+03. Automobile CRUD (Using Dummy Data) (4h)
+    - Car List
+    - Car Add
+    - Car Edit/Update
+    - Car Delete
+
+04. Automobile Search Feature (2h)
+
+05. Component Design (6h)
+    - Form
+    - Text Input
+    - Select Field
+    - Textarea Field
+    - Review Star Field
+
+06. Layout Design (2h)
+    - Heading
+    - Currency Converter Dropdown
+
+07. Landing Page/Search Page (5h)
+    - Design Page
+    - Design Search Box with Button
+    - Design automobiles List
+    - Design List Item
+    - Add Car Button linked to Add Car
+    - Develop Search
+    - Redirect to Detail page on Car/Item click
+    - Pagination Design
+    - Pagination Development
+    
+08. Add/Edit Car (4h)
+    - Design Car Add Form
+    - Save Car to Store    
+    - On Edit get Car Details from Store
+    - On Edit save update car data to Store
+    - Redirect to Car Details on Add/Edit
+
+09. Car Detail (4h)
+    - Design Car Details Page
+    - Show Edit Button
+    - Link to Edit Car Route
+    - Show Delete Button
+    - Add Delete Action
+    - Redirect to Landing/Search page
+    - Show existing Comment and Reviews
+
+10. Currency Converter (3h)
+    - Create Context
+    - Context convert currency
+    - Currency Convert Handler
+    - Currency Component
+    - Currency Component Update amount when currency type changes
+
+11. Comment/Review (4h)
+    - Design Comment and Review on Car Details
+    - On Comment/Review Add update Car
+
+
+Total estimated time is - 32Hours
