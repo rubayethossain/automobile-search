@@ -1,12 +1,26 @@
-import React from "react";
+import { AddCar, CarDetails, Search } from "containers";
+import React, { Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 import paths from "./paths";
 
 function Router() {
   return (
-    <Switch>
-      <Route path={paths.HOMEPAGE}>HOMEPAGE</Route>
-    </Switch>
+    <Fragment>
+      <Switch>
+        <Route exact path={paths.CAR_DETAILS}>
+          <CarDetails />
+        </Route>
+        <Route exact path={[paths.ADD_CAR, paths.EDIT_CAR]}>
+          <AddCar />
+        </Route>
+        <Route exact path={paths.SEARCH}>
+          <Search />
+        </Route>
+        <Route path={"*"}>
+          <h3>Sorry Page Not Found</h3>
+        </Route>
+      </Switch>
+    </Fragment>
   );
 }
 
