@@ -1,7 +1,7 @@
 const SEARCH = "/";
-const ADD_CAR = "/auto/add";
-const EDIT_CAR = "/auto/update/:car_id";
-const CAR_DETAILS = "/auto/details/:car_id";
+const ADD_CAR = "/car/add";
+const EDIT_CAR = "/car/update/:car_id";
+const CAR_DETAILS = "/car/details/:car_id";
 
 const paths = {
   SEARCH,
