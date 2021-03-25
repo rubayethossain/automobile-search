@@ -25,6 +25,7 @@ export const deleteCar = (carId) => {
 export const addComment = (carId, comment) => {
   return {
     type: ADD_COMMENT,
+    id: carId,
     payload: comment,
   };
 };

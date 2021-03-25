@@ -68,6 +68,25 @@ const reducer = (state = INITIAL_STATE, action) => {
       return cars;
     }
 
+    case ADD_COMMENT: {
+      // Copy existing cars
+      const cars = [...state];
+
+      // Find car index from the cars array
+      const carIndex = cars.findIndex((car) => car.id === id);
+
+      // Update car data with new comment
+      const updatedCar = {
+        ...cars[carIndex],
+        comments: [...cars[carIndex]["comments"], payload],
+      };
+
+      // Replace car with updated data
+      cars.splice(carIndex, 1, updatedCar);
+
+      return cars;
+    }
+
     default:
       return state;
   }
