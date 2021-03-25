@@ -23,15 +23,24 @@ const reducer = (state = INITIAL_STATE, action) => {
       // Copy existing cars
       const newCars = [...state];
 
-      // Get last car id to generate new car id
-      const lastCarId = newCars[newCars.length - 1].id;
+      // Check if cars is empty
+      if (!newCars.length) {
+        newCars.push({
+          ...payload,
+          id: 1,
+          comments: [],
+        });
+      } else {
+        // Get last car id to generate new car id
+        const lastCarId = newCars[newCars.length - 1].id;
 
-      // Add new car
-      newCars.push({
-        ...payload,
-        id: lastCarId + 1,
-        comments: [],
-      });
+        // Add new car
+        newCars.push({
+          ...payload,
+          id: lastCarId + 1,
+          comments: [],
+        });
+      }
 
       return newCars;
     }
@@ -42,6 +51,9 @@ const reducer = (state = INITIAL_STATE, action) => {
 
       // Find car index from the cars array
       const carIndex = cars.findIndex((car) => car.id === id);
+
+      // Return state when no car found
+      if (carIndex < 0) return state;
 
       // Update car data with new data
       const updatedCar = {
@@ -62,6 +74,9 @@ const reducer = (state = INITIAL_STATE, action) => {
       // Find car index from the cars array
       const carIndex = cars.findIndex((car) => car.id === id);
 
+      // Return state when no car found
+      if (carIndex < 0) return state;
+
       // Remove car by index
       cars.splice(carIndex, 1);
 
@@ -74,6 +89,9 @@ const reducer = (state = INITIAL_STATE, action) => {
 
       // Find car index from the cars array
       const carIndex = cars.findIndex((car) => car.id === id);
+
+      // Return state when no car found
+      if (carIndex < 0) return state;
 
       // Update car data with new comment
       const updatedCar = {
