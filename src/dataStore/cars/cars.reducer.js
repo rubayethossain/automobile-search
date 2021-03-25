@@ -1,10 +1,4 @@
-import {
-  ADD_CAR,
-  UPDATE_CAR,
-  DELETE_CAR,
-  CAR_DETAILS,
-  ADD_COMMENT,
-} from "./cars.type";
+import { ADD_CAR, UPDATE_CAR, DELETE_CAR, ADD_COMMENT } from "./cars.type";
 
 const INITIAL_STATE = [
   {

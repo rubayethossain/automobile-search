@@ -1,10 +1,4 @@
-import {
-  ADD_CAR,
-  ADD_COMMENT,
-  CAR_DETAILS,
-  DELETE_CAR,
-  UPDATE_CAR,
-} from "./cars.type";
+import { ADD_CAR, ADD_COMMENT, DELETE_CAR, UPDATE_CAR } from "./cars.type";
 
 export const addCar = (carDetails) => {
   return {
@@ -24,13 +18,6 @@ export const updateCar = (carId, updateData) => {
 export const deleteCar = (carId) => {
   return {
     type: DELETE_CAR,
-    id: carId,
-  };
-};
-
-export const carDetails = (carId) => {
-  return {
-    type: CAR_DETAILS,
     id: carId,
   };
 };
