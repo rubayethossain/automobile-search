@@ -1,4 +1,4 @@
-import { TextInput } from "components/FormFields";
+import { TextArea, TextInput } from "components/FormFields";
 import { useSearchCar } from "hooks";
 import React, { useState } from "react";
 
@@ -8,7 +8,8 @@ function Search(props) {
 
   return (
     <div>
-      <TextInput />
+      <TextInput label="Title" />
+      <TextArea label="Description" />
     </div>
   );
 }

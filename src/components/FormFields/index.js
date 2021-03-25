@@ -1,3 +1,4 @@
 import TextInput from "./TextInput";
+import TextArea from "./TextArea";
 
-export { TextInput };
+export { TextInput, TextArea };
