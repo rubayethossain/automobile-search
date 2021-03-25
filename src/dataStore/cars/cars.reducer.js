@@ -55,6 +55,19 @@ const reducer = (state = INITIAL_STATE, action) => {
       return cars;
     }
 
+    case DELETE_CAR: {
+      // Copy existing cars
+      const cars = [...state];
+
+      // Find car index from the cars array
+      const carIndex = cars.findIndex((car) => car.id === id);
+
+      // Remove car by index
+      cars.splice(carIndex, 1);
+
+      return cars;
+    }
+
     default:
       return state;
   }

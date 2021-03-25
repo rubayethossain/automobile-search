@@ -1,4 +1,4 @@
-import { addCar, updateCar } from "dataStore/cars/cars.actions";
+import { addCar, deleteCar, updateCar } from "dataStore/cars/cars.actions";
 import React from "react";
 import { useDispatch } from "react-redux";
 
@@ -24,10 +24,15 @@ function AddCar(props) {
     );
   };
 
+  const deleteCarFromStore = () => {
+    dispatch(deleteCar(3));
+  };
+
   return (
     <div>
       <button onClick={addNewCar}>Add New Car</button>
       <button onClick={changeCarDetails}>Update Car</button>
+      <button onClick={deleteCarFromStore}>Delete Car</button>
     </div>
   );
 }
