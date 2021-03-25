@@ -1,3 +1,4 @@
+import { TextInput } from "components/FormFields";
 import { useSearchCar } from "hooks";
 import React, { useState } from "react";
 
@@ -7,8 +8,7 @@ function Search(props) {
 
   return (
     <div>
-      Car Search Page{" "}
-      <button onClick={() => setSearchQuery("BMW")}>Search Benz</button>
+      <TextInput />
     </div>
   );
 }
