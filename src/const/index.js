@@ -106,3 +106,10 @@ export const DEFAULT_CARS = [
       "https://www.cars-data.com/webp/thumbs/350px/mercedes/mercedes-benz-cls-class-shooting-brake_1498_1.webp",
   },
 ];
+
+export const CURRENCIES = [
+  { label: "USD", value: "usd" },
+  { label: "GBP", value: "gbp" },
+  { label: "EUR", value: "eur" },
+  { label: "JPY", value: "jpy" },
+];

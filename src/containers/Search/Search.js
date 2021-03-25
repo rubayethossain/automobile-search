@@ -5,7 +5,7 @@ function Search(props) {
   const [searchQuery, setSearchQuery] = useState("");
   const result = useSearchCar(searchQuery);
 
-  return <div>Search Page</div>;
+  return <div></div>;
 }
 
 export default Search;
