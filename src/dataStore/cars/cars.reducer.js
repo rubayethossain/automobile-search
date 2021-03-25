@@ -6,21 +6,19 @@ import {
   ADD_COMMENT,
 } from "./cars.type";
 
-const INITIAL_STATE = {
-  cars: [
-    {
-      title: "Lamborghini Gallerdo",
-      price: 12340000,
-      brand: "Lamborghini",
-      comment: [
-        {
-          text: "Lorem ipsum dolor sit.",
-          author: "Mr. X",
-        },
-      ],
-    },
-  ],
-};
+const INITIAL_STATE = [
+  {
+    title: "Lamborghini Gallerdo",
+    price: 12340000,
+    brand: "Lamborghini",
+    comment: [
+      {
+        text: "Lorem ipsum dolor sit.",
+        author: "Mr. X",
+      },
+    ],
+  },
+];
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
