@@ -7,7 +7,17 @@ import { paths } from "Router";
 
 function Search(props) {
   const [searchQuery, setSearchQuery] = useState("BMW");
+  const [searchText, setSearchText] = useState("BMW");
+
   const result = useSearchCar(searchQuery);
+
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const searchCar = () => {
+    setSearchQuery(searchText);
+  };
 
   const renderResults = () => {
     if (!result.length)
@@ -43,8 +53,15 @@ function Search(props) {
 
       <div className="box mt-5">
         <div className="search-wrapper">
-          <TextInput placeholder="BMW, Toyota, etc.." style={{ flex: 1 }} />
-          <Button className="is-success">Search</Button>
+          <TextInput
+            placeholder="BMW, Toyota, etc.."
+            style={{ flex: 1 }}
+            value={searchText}
+            onChange={handleSearchChange}
+          />
+          <Button className="is-success" onClick={searchCar}>
+            Search
+          </Button>
         </div>
       </div>
 

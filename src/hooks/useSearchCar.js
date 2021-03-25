@@ -13,8 +13,6 @@ export default function useSearchCar(searchQuery) {
         (car) => car.title.includes(query) || car.brand.includes(query)
       );
 
-      console.log(searchResult);
-
       updateResult(searchResult);
     },
     [store]
