@@ -1,4 +1,4 @@
-import { TextArea, TextInput } from "components/FormFields";
+import { Select, TextArea, TextInput } from "components/FormFields";
 import { useSearchCar } from "hooks";
 import React, { useState } from "react";
 
@@ -10,6 +10,7 @@ function Search(props) {
     <div>
       <TextInput label="Title" />
       <TextArea label="Description" />
+      <Select options={[{ value: 1, label: "USD" }]} />
     </div>
   );
 }
