@@ -3,15 +3,8 @@ import {
   ADD_COMMENT,
   CAR_DETAILS,
   DELETE_CAR,
-  GET_CARS,
   UPDATE_CAR,
 } from "./cars.type";
-
-export const getAllCars = () => {
-  return {
-    type: GET_CARS,
-  };
-};
 
 export const addCar = (carDetails) => {
   return {
