@@ -1,3 +1,14 @@
-.input, .select select, .textarea{
-    border-radius: 0;
+.search-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper > .field {
+    flex: 1;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.search-wrapper > .field > label {
+    display: none;
 }

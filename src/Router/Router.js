@@ -7,10 +7,10 @@ function Router() {
   return (
     <Fragment>
       <Switch>
-        <Route exact path={paths.CAR_DETAILS}>
+        <Route exact path={`${paths.CAR_DETAILS}:car_id/`}>
           <CarDetails />
         </Route>
-        <Route exact path={[paths.ADD_CAR, paths.EDIT_CAR]}>
+        <Route exact path={[paths.ADD_CAR, `${paths.EDIT_CAR}:car_id/`]}>
           <AddCar />
         </Route>
         <Route exact path={paths.SEARCH}>
