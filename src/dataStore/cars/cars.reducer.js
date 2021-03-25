@@ -22,7 +22,9 @@ const INITIAL_STATE = [
 ];
 
 const reducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
+  const { type, id, payload } = action;
+
+  switch (type) {
     case ADD_CAR: {
       // Copy existing cars
       const newCars = [...state];
@@ -32,12 +34,31 @@ const reducer = (state = INITIAL_STATE, action) => {
 
       // Add new car
       newCars.push({
-        ...action.payload,
+        ...payload,
         id: lastCarId + 1,
         comments: [],
       });
 
       return newCars;
+    }
+
+    case UPDATE_CAR: {
+      // Copy existing cars
+      const cars = [...state];
+
+      // Find car index from the cars array
+      const carIndex = cars.findIndex((car) => car.id === id);
+
+      // Update car data with new data
+      const updatedCar = {
+        ...cars[carIndex],
+        ...payload,
+      };
+
+      // Replace car with updated data
+      cars.splice(carIndex, 1, updatedCar);
+
+      return cars;
     }
 
     default:
