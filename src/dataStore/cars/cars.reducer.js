@@ -1,19 +1,7 @@
+import { DEFAULT_CARS } from "const";
 import { ADD_CAR, UPDATE_CAR, DELETE_CAR, ADD_COMMENT } from "./cars.type";
 
-const INITIAL_STATE = [
-  {
-    id: 1,
-    title: "Lamborghini Gallerdo",
-    price: 12340000,
-    brand: "Lamborghini",
-    comments: [
-      {
-        text: "Lorem ipsum dolor sit.",
-        author: "Mr. X",
-      },
-    ],
-  },
-];
+const INITIAL_STATE = DEFAULT_CARS;
 
 const reducer = (state = INITIAL_STATE, action) => {
   const { type, id, payload } = action;
