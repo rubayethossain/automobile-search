@@ -5,9 +5,9 @@ import {
   updateCar,
 } from "dataStore/cars/cars.actions";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 
-function AddCar(props) {
+function AddCar({ cars }) {
   const dispatch = useDispatch();
 
   const addNewCar = () => {
@@ -48,8 +48,18 @@ function AddCar(props) {
       <button onClick={changeCarDetails}>Update Car</button>
       <button onClick={deleteCarFromStore}>Delete Car</button>
       <button onClick={addCommentsToCar}>Add Comment</button>
+
+      <ul>
+        {cars.map((car, key) => (
+          <li key={key}>{`${car.title} - ${car.brand} - ${car.price}`}</li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-export default AddCar;
+const mapStateToProps = (state) => ({
+  cars: state.cars,
+});
+
+export default connect(mapStateToProps)(AddCar);
