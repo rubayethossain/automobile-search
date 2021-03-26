@@ -1,7 +1,8 @@
+/* eslint-disable eqeqeq */
 import { DEFAULT_CARS } from "const";
 import { ADD_CAR, UPDATE_CAR, DELETE_CAR, ADD_COMMENT } from "./cars.type";
 
-const INITIAL_STATE = DEFAULT_CARS;
+const INITIAL_STATE = [...DEFAULT_CARS];
 
 const reducer = (state = INITIAL_STATE, action) => {
   const { type, id, payload } = action;
@@ -38,7 +39,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       const cars = [...state];
 
       // Find car index from the cars array
-      const carIndex = cars.findIndex((car) => car.id === id);
+      const carIndex = cars.findIndex((car) => car.id == id);
 
       // Return state when no car found
       if (carIndex < 0) return state;
@@ -60,7 +61,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       const cars = [...state];
 
       // Find car index from the cars array
-      const carIndex = cars.findIndex((car) => car.id === id);
+      const carIndex = cars.findIndex((car) => car.id == id);
 
       // Return state when no car found
       if (carIndex < 0) return state;
@@ -76,7 +77,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       const cars = [...state];
 
       // Find car index from the cars array
-      const carIndex = cars.findIndex((car) => car.id === id);
+      const carIndex = cars.findIndex((car) => car.id == id);
 
       // Return state when no car found
       if (carIndex < 0) return state;

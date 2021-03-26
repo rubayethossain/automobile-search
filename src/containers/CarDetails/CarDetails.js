@@ -1,12 +1,16 @@
 import Button from "components/Button";
 import { useCarDetails } from "hooks";
 import React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { paths } from "Router";
+import { useDispatch } from "react-redux";
+import { deleteCar } from "dataStore/cars/cars.actions";
 
 function CarDetails(props) {
   const { params } = useRouteMatch();
   const carDetails = useCarDetails(params.car_id);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const { title, price, image, comments } = carDetails;
 
@@ -25,6 +29,11 @@ function CarDetails(props) {
     }
   };
 
+  const deleteAuto = () => {
+    dispatch(deleteCar(params.car_id));
+    history.push(paths.SEARCH);
+  };
+
   return (
     <section className="mt-3">
       <div className="columns">
@@ -35,9 +44,16 @@ function CarDetails(props) {
           </h3>
 
           <Button className="mr-2 is-small is-warning">
-            <Link to={`${paths.EDIT_CAR}${params.car_id}`}>Edit</Link>
+            <Link
+              to={`${paths.EDIT_CAR}${params.car_id}`}
+              className="has-text-white"
+            >
+              Edit
+            </Link>
           </Button>
-          <Button className="is-small is-danger">Delete</Button>
+          <Button className="is-small is-danger" onClick={deleteAuto}>
+            Delete
+          </Button>
 
           <h4 className="is-size-5 mt-5">Comments</h4>
           <hr className="my-2" />
