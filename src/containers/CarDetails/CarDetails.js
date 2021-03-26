@@ -6,6 +6,7 @@ import { paths } from "Router";
 import { useDispatch } from "react-redux";
 import { deleteCar } from "dataStore/cars/cars.actions";
 import CommentForm from "./CommentForm";
+import Price from "components/Price";
 
 function CarDetails(props) {
   const { params } = useRouteMatch();
@@ -40,9 +41,7 @@ function CarDetails(props) {
       <div className="columns">
         <div className="column">
           <h1 className="is-size-2">{title}</h1>
-          <h3 className="is-size-4 mb-4">
-            <strong className="has-text-danger">{price}</strong>
-          </h3>
+          <Price className="is-size-4 mb-4" amount={price} />
 
           <Button className="mr-2 is-small is-warning">
             <Link
