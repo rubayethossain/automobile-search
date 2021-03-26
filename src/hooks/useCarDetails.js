@@ -21,5 +21,9 @@ export default function useCarDetails(car_id) {
     if (car_id) getCarDetails(car_id);
   }, [getCarDetails, car_id]);
 
-  return carDetails;
+  const refetchCarDetails = () => {
+    getCarDetails(car_id);
+  };
+
+  return [carDetails, refetchCarDetails];
 }

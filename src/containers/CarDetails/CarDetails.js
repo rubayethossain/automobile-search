@@ -5,10 +5,11 @@ import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { paths } from "Router";
 import { useDispatch } from "react-redux";
 import { deleteCar } from "dataStore/cars/cars.actions";
+import CommentForm from "./CommentForm";
 
 function CarDetails(props) {
   const { params } = useRouteMatch();
-  const carDetails = useCarDetails(params.car_id);
+  const [carDetails, refetchCarDetails] = useCarDetails(params.car_id);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -25,7 +26,7 @@ function CarDetails(props) {
         </div>
       ));
     } else {
-      return <p>No Comments Available</p>;
+      return <p>No Review Available</p>;
     }
   };
 
@@ -55,9 +56,14 @@ function CarDetails(props) {
             Delete
           </Button>
 
-          <h4 className="is-size-5 mt-5">Comments</h4>
+          <h4 className="is-size-5 mt-5">Reviews</h4>
           <hr className="my-2" />
           {commentsList()}
+
+          <h4 className="is-size-5 my-4">
+            <u>Add Review</u>
+          </h4>
+          <CommentForm carId={params.car_id} onCommentAdd={refetchCarDetails} />
         </div>
         <div className="column">
           <figure className="image">
