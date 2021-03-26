@@ -1,13 +1,13 @@
 import { addCar } from "dataStore/cars/cars.actions";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 import { useHistory } from "react-router";
 import { paths } from "Router";
 
 const { default: Button } = require("components/Button");
 const { TextInput } = require("components/FormFields");
 
-function AddCar() {
+function AddCar({ cars }) {
   const [carData, addCarData] = useState({
     title: "",
     price: "",
@@ -32,7 +32,9 @@ function AddCar() {
     e.preventDefault();
 
     dispatch(addCar(carData));
-    history.push(paths.SEARCH);
+    const lastCar = cars[cars.length - 1];
+
+    history.push(`${paths.CAR_DETAILS}${lastCar.id + 1}/`);
   };
 
   return (
@@ -81,4 +83,10 @@ function AddCar() {
   );
 }
 
-export default AddCar;
+function mapStateToProps(state) {
+  return {
+    cars: state.cars,
+  };
+}
+
+export default connect(mapStateToProps)(AddCar);
