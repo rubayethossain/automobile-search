@@ -48,7 +48,12 @@ export const DEFAULT_CARS = [
     title: "BMW I8 Roadster",
     price: 100000,
     brand: "BMW",
-    comments: [],
+    comments: [
+      {
+        msg: "Lorem ipsum dolor sit.",
+        author: "Mr. X",
+      },
+    ],
     image:
       "https://www.cars-data.com/webp/thumbs/350px/bmw/bmw-i8-roadster_4154_1.webp",
   },
