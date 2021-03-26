@@ -1,5 +1,6 @@
 import Button from "components/Button";
 import { TextInput } from "components/FormFields";
+import Price from "components/Price";
 import { useSearchCar } from "hooks";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -30,7 +31,7 @@ function Search(props) {
         <div className="box mb-2">
           <img src={auto.image} alt="" />
           <h3 className="is-size-5 has-text-weight-medium">{auto.title}</h3>
-          <h2 className="has-text-danger">{auto.price}</h2>
+          <Price className="has-text-danger" amount={auto.price} />
           <Button className="is-small is-link mt-2">
             <Link
               to={`${paths.CAR_DETAILS}${auto.id}`}

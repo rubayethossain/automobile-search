@@ -30,7 +30,7 @@ function CurrencyProvider({ children }) {
   }, [currency, currencyRates]);
 
   return (
-    <CurrencyContext.Provider value={{ rate, setCurrency }}>
+    <CurrencyContext.Provider value={{ rate, currency, setCurrency }}>
       {children}
     </CurrencyContext.Provider>
   );

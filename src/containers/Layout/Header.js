@@ -1,11 +1,18 @@
 import Button from "components/Button";
 import { Select } from "components/FormFields";
 import { CURRENCIES } from "const";
-import React from "react";
+import { CurrencyContext } from "contexts";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { paths } from "Router";
 
 function Header(props) {
+  const { currency, setCurrency } = useContext(CurrencyContext);
+
+  const onCurrencyChange = (e) => {
+    setCurrency(e.target.value);
+  };
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand" style={{ flexDirection: "column" }}>
@@ -21,7 +28,11 @@ function Header(props) {
             Add Car
           </Link>
         </Button>
-        <Select options={CURRENCIES} />
+        <Select
+          options={CURRENCIES}
+          onChange={onCurrencyChange}
+          value={currency}
+        />
       </div>
     </nav>
   );

@@ -113,8 +113,8 @@ export const DEFAULT_CARS = [
 ];
 
 export const CURRENCIES = [
-  { label: "USD", value: "usd" },
-  { label: "GBP", value: "gbp" },
-  { label: "EUR", value: "eur" },
-  { label: "JPY", value: "jpy" },
+  { label: "USD", value: "USD" },
+  { label: "GBP", value: "GBP" },
+  { label: "EUR", value: "EUR" },
+  { label: "JPY", value: "JPY" },
 ];
