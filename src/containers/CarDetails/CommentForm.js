@@ -36,12 +36,14 @@ function CommentForm({ carId, onCommentAdd = () => {} }) {
         label="Comment"
         value={comment.msg}
         onChange={onInputChange}
+        required
       />
       <TextInput
         name="author"
         label="Name"
         value={comment.author}
         onChange={onInputChange}
+        required
       />
       <Button type="submit">Save</Button>
     </form>
