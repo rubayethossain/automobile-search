@@ -1,4 +1,8 @@
+import { addCar } from "dataStore/cars/cars.actions";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
+import { paths } from "Router";
 
 const { default: Button } = require("components/Button");
 const { TextInput } = require("components/FormFields");
@@ -10,6 +14,8 @@ function AddCar() {
     brand: "",
     image: "",
   });
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const onInputChange = (e) => {
     const target = e.target;
@@ -25,7 +31,8 @@ function AddCar() {
   const saveCar = (e) => {
     e.preventDefault();
 
-    console.log(carData);
+    dispatch(addCar(carData));
+    history.push(paths.SEARCH);
   };
 
   return (
@@ -38,6 +45,7 @@ function AddCar() {
           label="Car Name"
           value={carData.title}
           onChange={onInputChange}
+          required
         />
 
         <TextInput
@@ -45,6 +53,7 @@ function AddCar() {
           label="Brand"
           value={carData.brand}
           onChange={onInputChange}
+          required
         />
 
         <TextInput
@@ -53,6 +62,7 @@ function AddCar() {
           type="number"
           value={carData.price}
           onChange={onInputChange}
+          required
         />
 
         <TextInput
@@ -60,6 +70,7 @@ function AddCar() {
           label="Image url"
           value={carData.image}
           onChange={onInputChange}
+          required
         />
 
         <Button type="submit" className="is-success is-medium mt-2">
