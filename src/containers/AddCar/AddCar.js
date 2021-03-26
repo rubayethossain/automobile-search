@@ -1,7 +1,7 @@
-import { addCar } from "dataStore/cars/cars.actions";
-import { useState } from "react";
+import { addCar, updateCar } from "dataStore/cars/cars.actions";
+import { useEffect, useState } from "react";
 import { useDispatch, connect } from "react-redux";
-import { useHistory } from "react-router";
+import { useHistory, useRouteMatch } from "react-router";
 import { paths } from "Router";
 
 const { default: Button } = require("components/Button");
@@ -16,6 +16,16 @@ function AddCar({ cars }) {
   });
   const dispatch = useDispatch();
   const history = useHistory();
+  const { params } = useRouteMatch();
+
+  useEffect(() => {
+    if (params.car_id) {
+      // eslint-disable-next-line eqeqeq
+      const carDetails = cars.find((car) => car.id == params.car_id);
+
+      addCarData(carDetails);
+    }
+  }, [params, cars]);
 
   const onInputChange = (e) => {
     const target = e.target;
@@ -37,11 +47,20 @@ function AddCar({ cars }) {
     history.push(`${paths.CAR_DETAILS}${lastCar.id + 1}/`);
   };
 
+  const updateCarData = (e) => {
+    e.preventDefault();
+
+    dispatch(updateCar(params.car_id, carData));
+    history.push(`${paths.CAR_DETAILS}${params.car_id}/`);
+  };
+
   return (
     <div className="mt-4">
-      <h2 className="is-size-3 mb-4">Add a new car</h2>
+      <h2 className="is-size-3 mb-4">
+        {params.car_id ? "Update Car" : "Add New Car"}
+      </h2>
 
-      <form onSubmit={saveCar}>
+      <form onSubmit={params.car_id ? updateCarData : saveCar}>
         <TextInput
           name="title"
           label="Car Name"
@@ -76,7 +95,7 @@ function AddCar({ cars }) {
         />
 
         <Button type="submit" className="is-success is-medium mt-2">
-          Add Car
+          {params.car_id ? "Update" : "Save"}
         </Button>
       </form>
     </div>
