@@ -41,7 +41,10 @@ function CarDetails(props) {
       <div className="columns">
         <div className="column">
           <h1 className="is-size-2">{title}</h1>
-          <Price className="is-size-4 mb-4" amount={price} />
+          <Price
+            className="is-size-5 mb-4 has-text-weight-medium has-text-success"
+            amount={price}
+          />
 
           <Button className="mr-2 is-small is-warning">
             <Link
